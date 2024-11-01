@@ -35,7 +35,7 @@ class Fighter():
 
     def change_weapon(self, weapon: Weapon):
         self.weapon = weapon
-        print(f"The Fighter has chosen {self.weapon}")
+        print(f"The Fighter has switched to {self.weapon}")
 
     def fight(self):
         print(self.weapon.attack())
