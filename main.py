@@ -15,17 +15,17 @@ class Weapon(ABC):
         return self.name
 
     @abstractmethod
-    def attack(self):
+    def attack(self, fighter_name):
         pass
 
 class Sword(Weapon):
-    def attack(self):
-        print("The Fighter attacks with a Sword!")
+    def attack(self, fighter_name):
+        print(f"{fighter_name}, The Fighter attacks with a Sword!")
 
 
 class Bow(Weapon):
-    def attack(self):
-        print("The Fighter attacks with a Bow!")
+    def attack(self, fighter_name):
+        print(f"{fighter_name}, The Fighter attacks with a Bow!")
 
 
 class Fighter():
@@ -35,10 +35,13 @@ class Fighter():
 
     def change_weapon(self, weapon: Weapon):
         self.weapon = weapon
-        print(f"The Fighter has switched to {self.weapon}")
+        print(f"{self.name}, The Fighter has switched to {self.weapon}")
+
+    def __str__(self):
+            return self.name
 
     def fight(self):
-        print(self.weapon.attack())
+        self.weapon.attack(self.name)
         print("The Monster is defeated!")
 
 
